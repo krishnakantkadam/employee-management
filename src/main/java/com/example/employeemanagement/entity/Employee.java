@@ -16,6 +16,12 @@ public class Employee {
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
 
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+
     public Employee() {}
 
     // Constructor with all fields
@@ -36,4 +42,7 @@ public class Employee {
     public void setSalary(double salary) { this.salary = salary; }
     public Address getAddress() { return address; }
     public void setAddress(Address address) { this.address = address; }
+    // Add getter and setter for user
+    public User getUser() { return user; }
+    public void setUser(User user) { this.user = user; }
 }
